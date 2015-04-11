@@ -36,7 +36,7 @@ header("Cache-Control: Private"); ?>
   </head>
   <body>
 
-  <div id="loader"><img src="./img/716.GIF"  alt="Loading..." /></div><div id="fade"></div>
+  <div id="loader"><img src="./img/394.GIF"  alt="Loading..." /></div><div id="fade"></div>
   <div class="container">
 
 <h1>シモシモツールテスト中じゃ！</h1>
@@ -73,7 +73,6 @@ header("Cache-Control: Private"); ?>
     <script type="text/javascript" src="js/load.js"></script> <!--jsフォルダ内の場合-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery/bootstrap.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="js/bootstrapFormValidation/bootstrapFormValidationV3-1.0.2.min.js"></script>
 
   <script type="text/javascript" charset="UTF-8">
