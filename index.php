@@ -17,14 +17,15 @@ header("Cache-Control: Private"); ?>
     <title>Investors Trust Application</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="bootstrapFormValidation/bootstrapFormValidationV3-1.0.2.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="css/jquery/jquery-ui.css" rel="stylesheet">
+
     <!-- include the core styles -->
-    <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.core.css" />
+    <!-- <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.core.css" /> -->
     <!-- include a theme, can be included into the core instead of 2 separate files -->
-    <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.default.css" />
-    <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.bootstrap.css" />
+    <!-- <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.default.css" /> -->
+    <!-- <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.bootstrap.css" /> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,13 +52,28 @@ header("Cache-Control: Private"); ?>
   </div>
 </form>
 
-</div> <!-- container -->
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">First</a></li>
+		<li><a href="#tabs-2">Second</a></li>
+		<li><a href="#tabs-3">Third</a></li>
+	</ul>
+	<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+	<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+	<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+</div>
+
+
+
+	</div> <!-- container -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/load.js"></script> <!--jsフォルダ内の場合-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery/bootstrap.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="bootstrapFormValidation/bootstrapFormValidationV3-1.0.2.min.js"></script>
     <script src="js/alertify.js-0.3.11/lib/alertify.min.js"></script>
     <script type="text/javascript" src="js/myjquery.js"></script> <!--jsフォルダ内の場合-->
