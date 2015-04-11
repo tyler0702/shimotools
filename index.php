@@ -70,6 +70,7 @@ header("Cache-Control: Private"); ?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/jquery/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/load.js"></script> <!--jsフォルダ内の場合-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
