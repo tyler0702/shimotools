@@ -19,7 +19,7 @@ header("Cache-Control: Private"); ?>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-	<link href="css/jquery/jquery-ui.css" rel="stylesheet">
+	<link href="js/jquery/jquery-ui.css" rel="stylesheet">
 
     <!-- include the core styles -->
     <!-- <link rel="stylesheet" href="js/alertify.js-0.3.11/themes/alertify.core.css" /> -->
@@ -74,9 +74,7 @@ header("Cache-Control: Private"); ?>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery/bootstrap.min.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="bootstrapFormValidation/bootstrapFormValidationV3-1.0.2.min.js"></script>
-    <script src="js/alertify.js-0.3.11/lib/alertify.min.js"></script>
-    <script type="text/javascript" src="js/myjquery.js"></script> <!--jsフォルダ内の場合-->
+    <script type="text/javascript" charset="UTF-8" src="js/bootstrapFormValidation/bootstrapFormValidationV3-1.0.2.min.js"></script>
 
   <script type="text/javascript" charset="UTF-8">
   $(document).ready(function() {

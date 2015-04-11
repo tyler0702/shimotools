@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap Form Validation V3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- styles -->
+		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
+		<link rel="stylesheet" type="text/css" href="bootstrapFormValidationV3-1.0.2.css" media="all">
+		<style type="text/css">
+		.navbar .container .btn.btn-navbar {
+			float: left !important;
+		}
+		section {
+			margin: 70px 0;
+		}
+		#sampleForm {
+			margin: 50px 0;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="http://www.entereal.co.jp/">ENTEREAL</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<!-- Example row of columns -->
+			<div class="row" style="margin:50px 0 0 10px;">
+				<h1>Sample | Bootstrap Form Validation V3 <small>with Ver. 1.0.2</small></h1>
+			</div>
+
+			<section>
+				<h3>基本メールフォーム</h3>
+
+				<form id="sampleForm1" class="form-horizontal" role="form" action="next-function.cgi" method="POST">
+					<div class="form-group">
+						<label for="inputName" class="col-sm-2 col-sm-offset-1 control-label">お名前</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="inputName" placeholder="お名前" valCheck="required text">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputGender" class="col-sm-2 col-sm-offset-1 control-label">性別</label>
+						<div class="col-sm-7">
+							<label class="radio-inline">
+								<input type="radio" name="inputGender" id="inputGender-male" value="男性" valCheck="required check"> 男性
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inputGender" id="inputGender-female" value="女性" valCheck="required check"> 女性
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputZip" class="col-sm-2 col-sm-offset-1 control-label">郵便番号</label>
+						<div class="col-sm-7">
+							<div class="row col-sm-6">
+								<input type="text" class="form-control" id="inputZip" placeholder="郵便番号" valCheck="required zip">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputAddress" class="col-sm-2 col-sm-offset-1 control-label">住所</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="inputAddress" placeholder="住所" valCheck="required text">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputTelephone" class="col-sm-2 col-sm-offset-1 control-label">電話番号</label>
+						<div class="col-sm-7">
+							<div class="row col-sm-6">
+								<input type="text" class="form-control" id="inputTelephone" placeholder="電話番号" valCheck="required tel">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputEmail" class="col-sm-2 col-sm-offset-1 control-label">メールアドレス</label>
+						<div class="col-sm-7">
+							<input type="email" class="form-control" id="inputEmail" placeholder="メールアドレス" valCheck="required email">
+							<p class="text-primary">* 折り返しメールでご連絡させて頂ますので、お間違いないようご入力ください。</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword" class="col-sm-2 col-sm-offset-1 control-label">パスワード</label>
+						<div class="col-sm-7">
+							<input type="password" class="form-control" id="inputPassword" placeholder="パスワード" valCheck="required passwd_8-">
+							<p class="text-primary">* 英大小文字、数字の組み合わせで8文字以上を指定してください。</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputBloodType" class="col-sm-2 col-sm-offset-1 control-label">血液型</label>
+						<div class="col-sm-7">
+							<div class="row col-sm-6">
+								<select id="inputBloodType" class="form-control" valCheck="required select">
+									<option value="">選択してください</option>
+									<option value="A型">A型</option>
+									<option value="B型">B型</option>
+									<option value="O型">O型</option>
+									<option value="AB型">AB型</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputOtherText" class="col-sm-2 col-sm-offset-1 control-label">その他</label>
+						<div class="col-sm-7">
+							<textarea id="inputOtherText" class="form-control" rows="3" placeholder="ご質問などご自由にお書きください。" valCheck="required text"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputAgreement" class="col-sm-2 col-sm-offset-1 control-label">同意事項</label>
+						<div class="col-sm-7">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="inputAgreement" id="inputAgreement1" value="利用規約に同意" valCheck="required groupcheck_2-">
+									当サイトの利用規約に同意します。
+								</label>
+							</div>
+
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="inputAgreement" id="inputAgreement2" value="利用規約に同意" valCheck="required groupcheck_2-">
+									当ソフトの利用規約に同意します。
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-7 text-center">
+							<div class="row">
+								<div class="col-sm-6">
+									<button type="reset" class="btn btn-lg btn-block btn-default" onclick="location.reload();">
+										<span class="glyphicon glyphicon-remove"></span> リセット
+									</button>
+								</div>
+
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-lg btn-block btn-primary" valCheck="submit">
+										<span class="glyphicon glyphicon-envelope"></span> メール送信
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-7 text-center">
+							<div class="row">
+								<div class="col-sm-6">
+									<a href="#" class="btn btn-lg btn-block btn-primary" valCheck="submit" onclick="alert('aボタンに設定された処理');">
+										a href='#' class='btn' ボタン
+									</a>
+								</div>
+
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-lg btn-block btn-primary" valCheck="submit">
+										button type='button' ボタン
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-7 text-center">
+							<div class="row">
+								<div class="col-sm-6">
+									<input type="submit" class="btn btn-lg btn-block btn-primary" value="input type='submit' ボタン" valCheck="submit">
+								</div>
+
+								<div class="col-sm-6">
+									<button type="submit" class="btn btn-lg btn-block btn-primary" valCheck="submit">
+										button type='submit' ボタン
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</section>
+
+
+			<section>
+				<h3>その他サンプル エレメント</h3>
+
+				<form id="sampleForm2" class="form-horizontal" role="form" action="next-function.cgi" method="POST">
+					<div class="form-group">
+						<label for="inputFamilyName" class="col-sm-2 col-sm-offset-1 control-label">分割インライン<br>インプット</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="inputFamilyName" placeholder="姓" valCheck="required text">
+								</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="inputGivenName" placeholder="名" valCheck="required text">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputFamilyName2" class="col-sm-2 col-sm-offset-1 control-label">インプット<br>グループ</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="input-group">
+									<span class="input-group-addon">漢字</span>
+									<input type="text" class="form-control" id="inputFamilyName2" valCheck="required text">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">カナ</span>
+									<input type="text" class="form-control" id="inputGivenName2" valCheck="required kana">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputHomePhone" class="col-sm-2 col-sm-offset-1 control-label">インプットグループ<br>+ アイコン</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+										<input type="text" class="form-control" id="inputHomePhone" placeholder="03-1234-5678" valCheck="required tel">
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+										<input type="text" class="form-control" id="inputMobilePhone" placeholder="090-1234-5678" valCheck="required tel">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputMail1" class="col-sm-2 col-sm-offset-1 control-label">メールアドレス<br>再入力</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="input-group">
+									<span class="input-group-addon">メール</span>
+									<input type="email" class="form-control" name="inputMail" id="inputMail1" valCheck="required email">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">再入力</span>
+									<input type="email" class="form-control" name="inputMail" id="inputMail2" valCheck="retype">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputHeight" class="col-sm-2 col-sm-offset-1 control-label">インプット<br>グループ</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon">身長</span>
+										<input type="number" class="form-control" id="inputHeight" valCheck="required number">
+										<span class="input-group-addon">cm</span>
+									</div>
+								</div>
+
+								<div class="col-sm-4">
+									<div class="input-group">
+										<span class="input-group-addon">体重</span>
+										<input type="number" class="form-control" id="inputWeight" valCheck="required number">
+										<span class="input-group-addon">kg</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPw1" class="col-sm-2 col-sm-offset-1 control-label">パスワード再入力</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="input-group">
+									<span class="input-group-addon">パスワード</span>
+									<input type="password" class="form-control" name="inputPw" id="inputPw1" valCheck="required passwd_8-">
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">　再入力　</span>
+									<input type="password" class="form-control" name="inputPw" id="inputPw2" valCheck="retype">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="AccountName" class="col-sm-2 col-sm-offset-1 control-label">インプットグループ<br>+ ボタン</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="input-group">
+									<span class="input-group-addon">アカウント</span>
+									<input type="text" class="form-control" id="inputId" value="AccountName" valCheck="required text">
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" onclick="$('#inputId').val('').blur();">クリア　</button>
+									</span>
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">パスワード</span>
+									<input type="text" class="form-control" id="inputPw" valCheck="required text">
+									<span class="input-group-btn">
+										<span type="button" class="btn btn-info" onclick="passwordGenerate(8, '#inputPw');">自動生成</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputInlineRadio" class="col-sm-2 col-sm-offset-1 control-label">インライン<br>ラジオ</label>
+						<div class="col-sm-7">
+							<label class="radio-inline">
+								<input type="radio" name="inputInlineRadio" id="inputInlineRadio1" value="option1" valCheck="required check"> 選択肢１
+							</label>
+
+							<label class="radio-inline">
+								<input type="radio" name="inputInlineRadio" id="inputInlineRadio2" value="option2" valCheck="required check"> 選択肢２
+							</label>
+
+							<label class="radio-inline">
+								<input type="radio" name="inputInlineRadio" id="inputInlineRadio3" value="option3" valCheck="required check"> 選択肢３
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="optionsRadio" class="col-sm-2 col-sm-offset-1 control-label">ブロック<br>ラジオ</label>
+						<div class="col-sm-7">
+							<div class="radio">
+								<label>
+									<input type="radio" name="optionsRadio" id="optionsRadio1" value="option1" valCheck="required check">
+									ブロックラジオ 選択肢 1
+								</label>
+							</div>
+
+							<div class="radio">
+								<label>
+									<input type="radio" name="optionsRadio" id="optionsRadio2" value="option2" valCheck="required check">
+									ブロックラジオ 選択肢 2
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inlineCheckbox" class="col-sm-2 col-sm-offset-1 control-label">インライン<br>チェックボックス</label>
+						<div class="col-sm-7">
+							<label class="checkbox-inline">
+								<input type="checkbox" name="inlineCheckbox" id="inlineCheckbox1" value="選択肢 1" valCheck="required groupcheck_2-"> 選択肢 1
+							</label>
+
+							<label class="checkbox-inline">
+								<input type="checkbox" name="inlineCheckbox" id="inlineCheckbox2" value="選択肢 2" valCheck="required groupcheck_2-"> 選択肢 2
+							</label>
+
+							<label class="checkbox-inline">
+								<input type="checkbox" name="inlineCheckbox" id="inlineCheckbox3" value="選択肢 3" valCheck="required groupcheck_2-"> 選択肢 3
+							</label>
+							<p class="text-info">* 2つ以上選択してください。</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="blockCheckbox" class="col-sm-2 col-sm-offset-1 control-label">ブロック<br>チェックボックス</label>
+						<div class="col-sm-7">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="blockCheckbox" id="blockCheckbox1" value="項目 1" valCheck="required groupcheck_2-">
+									ブロックチェックボックス 項目 1
+								</label>
+							</div>
+
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="blockCheckbox" id="blockCheckbox2" value="項目 2" valCheck="required groupcheck_2-">
+									ブロックチェックボックス 項目 2
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputInlineSelect" class="col-sm-2 col-sm-offset-1 control-label">インライン<br>セレクトボックス</label>
+						<div class="col-sm-7">
+							<div class="row">
+								<div class="col-sm-4">
+									<select class="form-control" id="inputInlineSelect1" valCheck="required select">
+										<option value="">選択してください</option>
+										<option value="">選択肢 ア</option>
+										<option value="">選択肢 イ</option>
+										<option value="">選択肢 ウ</option>
+										<option value="">選択肢 エ</option>
+										<option value="">選択肢 オ</option>
+									</select>
+								</div>
+
+								<div class="col-sm-4">
+									<select class="form-control" id="inputInlineSelect2" valCheck="required select">
+										<option value="">選択してください</option>
+										<option value="">選択肢 1</option>
+										<option value="">選択肢 2</option>
+										<option value="">選択肢 3</option>
+										<option value="">選択肢 4</option>
+										<option value="">選択肢 5</option>
+									</select>
+								</div>
+
+								<div class="col-sm-4">
+									<select class="form-control" id="inputInlineSelect3" valCheck="required select">
+										<option value="">選択してください</option>
+										<option value="">選択肢 A</option>
+										<option value="">選択肢 B</option>
+										<option value="">選択肢 C</option>
+										<option value="">選択肢 D</option>
+										<option value="">選択肢 E</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputFile" class="col-sm-2 col-sm-offset-1 control-label">ファイルセレクト</label>
+						<div class="col-sm-7">
+							<input type="file" id="inputFile" valCkeck="required file png jpg jpeg">
+							<p class="text-info"><span class="glyphicon glyphicon-file"></span> png, jpg, jpeg ファイルを選択して下さい。</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-7 text-center">
+							<div class="row">
+								<div class="col-sm-6">
+									<button type="reset" class="btn btn-lg btn-block btn-default" onclick="location.reload();">
+										<span class="glyphicon glyphicon-remove"></span> リセット
+									</button>
+								</div>
+
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-lg btn-block btn-primary" valCheck="submit" onclick="alert('ここ又は、formのaction属性に正常処理(ポスト処理等)を書きます。');">
+										<span class="glyphicon glyphicon-envelope"></span> メール送信
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<footer>
+				<p>ENTEREAL &copy; 2014</p>
+				<a class="btn btn-default" href="http://www.entereal.co.jp/dev_validationV3.html" style="margin:30px 0;"><i class="glyphicon glyphicon-chevron-left"></i>　解説ページに戻る</a>
+			</footer>
+		</div> <!-- /container -->
+
+		<!-- javascript -->
+		<script type="text/javascript" charset="UTF-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="bootstrapFormValidationV3-1.0.2.min.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+		$(document).ready(function() {
+			$('#sampleForm1').bootstrapFormValidation();
+			$('#sampleForm2').bootstrapFormValidation();
+		});
+		function passwordGenerate(pwLength, returnObj) {
+			for (var i = 0, password = ""; i < pwLength; i++) {
+				password += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".charAt(Math.floor(Math.random() * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".length));
+			}
+			$(returnObj).val(password).blur();
+		};
+		</script>
+
+		<!-- Analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-32358952-1']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+
+		<!-- Start of Woopra Code -->
+		<script type="text/javascript">
+			function woopraReady(tracker) {
+				tracker.setDomain('entereal.co.jp');
+				tracker.setIdleTimeout(300000);
+				tracker.trackPageview({type:'pageview',url:window.location.pathname+window.location.search,title:document.title});
+				return false;
+			}
+			(function() {
+				var wsc = document.createElement('script');
+				wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
+				wsc.type = 'text/javascript';
+				wsc.async = true;
+				var ssc = document.getElementsByTagName('script')[0];
+				ssc.parentNode.insertBefore(wsc, ssc);
+			})();
+		</script>
+
+		<!-- ER Analytics -->
+		<script type="text/javascript" charset="UTF-8" src="/js/WebStore.js"></script>
+	</body>
+</html>

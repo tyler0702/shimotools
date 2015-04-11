@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Document | Bootstrap Form Validation V3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- styles -->
+		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all">
+		<style type="text/css">
+		.dlWideBottom dt,
+		.dlWideBottom dd {
+			margin-bottom: 20px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="http://www.entereal.co.jp/">ENTEREAL</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<!-- Example row of columns -->
+			<div class="row-fluid">
+				<a class="btn" href="http://www.entereal.co.jp/dev_validationV3.html" style="margin-bottom:50px;"><i class="icon-chevron-left"></i>　解説ページに戻る</a>
+				<h1>Document | Bootstrap Form Validation V3</h1>
+				<h3>ドキュメント <small>with Ver. 1.0.2</small></h3>
+			</div>
+
+			<div class="row-fluid">
+				<div>
+					<h3>使い方</h3>
+					<p>Bootstrap Ver.3.xで作成されたフォームの入力チェックプログラムです。特に日本語の環境に特化した機能を提供します。</p>
+					<p class="text-error">Bootstrap Ver.2.x用には<a href="http://www.entereal.co.jp/dev_validationV2.html">Bootstrap Form Validation V2</a>をお使いください。</p>
+				</div>
+
+				<div>
+					<h4>CSS</h4>
+					<dd>
+						<p>BootstrapのCSS読み込んだ後、<code>bootstrapFormValidation.css</code>を読み込んでください。</p>
+<pre><code>&lt;link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;link href="bootstrapFormValidationV3-1.0.2.css" rel="stylesheet"&gt;
+</code></pre>
+					</dd>
+				</div>
+
+				<div>
+					<h4>JavaScript</h4>
+					<dd>
+						<p>jQueryとBootstrapを読み込んだ後、<code>bootstrapFormValidation.js</code>を読み込んでください。</p>
+<pre><code>&lt;script type="text/javascript" charset="UTF-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="UTF-8" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/3.1.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="UTF-8" src="bootstrapFormValidationV3-1.0.2.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+						<p>その後、ページがロードされたらフォームの事前準備をするために、対象のフォームに対し<code>bootstrapFormValidation()</code>を実行します。</p>
+<pre><code>&lt;script type="text/javascript" charset="UTF-8"&gt;
+&#36;(document).ready(function() {
+	&#36;('#sampleForm').bootstrapFormValidation();
+});
+&lt;/script&gt;
+</code></pre>
+					</dd>
+				</div>
+
+				<div>
+					<h4>オプション指定</h4>
+					<dl class="dl-horizontal dlWideBottom dlStriped">
+						<dt>checkRealtime</dt>
+						<dd>
+							デフォルト：<code>'true'</code> | 'false'<br />
+							<code>'true'</code>の場合、対象エレメントからフォーカスが外れた際に、随時入力をチェックし警告メッセージを表示します。
+						</dd>
+
+						<dt>alertMsgClass</dt>
+						<dd>
+							デフォルト：<code>'alert-msg'</code> | 任意の文字列<br />
+							警告メッセージ全部に共通して付与されるクラス名。見た目デザイン変更などに使えます。任意のクラス名に変更可能です。但し、他の関係ないエレメントと共有すると弊害が出る可能性があります。<br />
+							<span class="text-info">※スペース区切りで複数クラス名を指定することはできません。</span>
+						</dd>
+
+						<dt>addIcon</dt>
+						<dd>
+							デフォルト：<code>'true'</code> | 'false'<br />
+							<code>'true'</code>の場合、警告メッセージにアイコンを付けることができます。アイコンの指定は<code>warningIcon</code>で指定可能です。
+						</dd>
+
+						<dt>warningIcon</dt>
+						<dd>
+							デフォルト：<code>'glyphicon-remove'</code> | Bootstrapの任意のアイコンクラス名<br />
+							警告メッセージにアイコンを指定することが可能です。<code>addIcon</code>が<code>'false'</code>の場合は無視されます。<br />
+							<span class="text-info">※ <a href="http://getbootstrap.com/components/#glyphicons" target="_blank" style="text-decoration:underline;">Bootstrap</a> のページでアイコンクラス名の一覧が参照可能です。</span><br />
+							アイコンの色を変更するためのクラス<code>icon-white</code>等は、半角スペースで区切って「<code>'icon-exclamation-sign icon-white'</code>」と指定することが可能です。
+						</dd>
+
+						<dt>requiredMessage</dt>
+						<dd>
+							デフォルト：<code>'必須項目'</code> | 任意の文字列<br />
+							入力必須項目(<code>valCheck="required"</code>)での警告メッセージ文を変更可能です。入力必須項目に何も入力しなかった場合に表示されます。
+						</dd>
+
+						<dt>invalidMessage</dt>
+						<dd>
+							デフォルト：<code>'不正形式'</code> | 任意の文字列<br />
+							入力形式チェック項目(<code>valCheck="zip | tel | email | url | number | kana | file | length"</code>)での警告メッセージ文を変更可能です。特定の項目の入力で形式がおかしな場合に表示されます。
+						</dd>
+
+						<dt>inputTooShortMessage</dt>
+						<dd>
+							デフォルト：<code>'入力/選択 不足'</code> | 任意の文字列<br />
+							入力数下限チェック項目(<code>valCheck="passwd | groupcheck"</code>)での警告メッセージ文を変更可能です。パスワード文字数やチェック選択数が規定に足りない場合に表示されます。
+						</dd>
+
+						<dt>inputTooLongMessage</dt>
+						<dd>
+							デフォルト：<code>'入力/選択 超過'</code> | 任意の文字列<br />
+							入力数上限チェック項目(<code>valCheck="passwd | groupcheck"</code>)での警告メッセージ文を変更可能です。パスワード文字数やチェック選択数が規定を超えた場合に表示されます。
+						</dd>
+
+						<dt>notMatchedMessage</dt>
+						<dd>
+							デフォルト：<code>'不一致'</code> | 任意の文字列<br />
+							再入力項目(<code>valCheck="retype"</code>)での警告メッセージ文を変更可能です。タイプミス削減のための再入力値が異なる場合に表示されます。
+						</dd>
+					</dl>
+<pre><code>&#36;('#sampleForm').bootstrapFormValidation({
+	'checkRealtime'        : 'false',
+	'alertMsgClass'        : 'alert-msg',
+	'addIcon'              : 'true',
+	'warningIcon'          : 'glyphicon-remove',
+	'requiredMessage'      : '入力必須の項目です',
+	'invalidMessage'       : '電話番号の入力が間違っています',
+	'inputTooShortMessage' : 'パスワードの文字数が足りません',
+	'inputTooLongMessage'  : 'パスワードの文字数が多すぎです',
+	'notMatchedMessage'    : '再入力値が異なります'
+});
+</code></pre>
+				</div>
+			</div>
+
+			<hr class="soften" />
+
+			<div class="row-fluid">
+				<h3>処理概要と処理順序</h3>
+				<div>
+					<dl class="dl-horizontal dlWideBottom">
+						<dt>初期処理<br>↓　　</dt>
+						<dd>
+							<code>対象フォーム.bootstrapFormValidation();</code>が実行されたタイミングで、各種エラーメッセージや、チェック処理が対象フォームに付与されます。
+						</dd>
+
+						<dt>対象項目入力後<br>↓　　</dt>
+						<dd>
+							チェック対象の項目がフォーカスを失った時点で、その項目に対する単独のチェックやサニタイズ等の処理を実行します。<br>
+							チェック結果が即時エラーメッセージとして表示されます。
+						</dd>
+
+						<dt>サブミット時<br>↓　　</dt>
+						<dd>
+							<code>valCheck="submit"</code>を持ったボタンを押した場合、その対象フォーム内の項目に対し上から順に、チェックやサニタイズ等の処理を実行します。<br>
+							各項目毎にチェック結果がエラーメッセージとして表示されます。
+						</dd>
+
+						<dt>サブミット処理<br>(全チェック後の正常処理)</dt>
+						<dd>
+							<strong>Javascriptの場合：</strong>
+							(<code>valCheck="submit"</code>を持ったボタンに<code>onclick="XXX"</code>がある場合)<br>
+							全チェックが完了後、エラーが無い場合、続いて<code>onclick="XXX"</code>処理を実行します。
+							<p class="text-error">※ HTML上に書かれた<code>onclick="XXX"</code>属性は、HTML上からは消えます。(処理は実行されます。)</p><br>
+
+							<strong>CGIの場合：</strong>
+							(対象フォームに<code>action="XXX"</code>がある場合)<br>
+							全チェックが完了後、エラーが無い場合、続いて<code>action="XXX"</code>処理を実行します。<br><br>
+
+							<strong>JavascriptとCGIの両方の設定がある場合：</strong><br>
+							全チェックが完了後、エラーが無い場合、続いて<code>onclick="XXX"</code>処理を実行します。
+							<p class="text-error">※ 本スクリプト内ではformをsubmitしませんので、XXX処理側でsubmitしてください。</p>
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<hr class="soften" />
+
+			<div class="row-fluid">
+				<h3>対象項目チェック仕様</h3>
+				<div>
+					<dl class="dl-horizontal dlWideBottom">
+						<dt>入力必須項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="required"</code>を付加してください。入力が無い場合に入力必須の警告メッセージを表示します。</p>
+							<p><code>valCheck="required"</code>は、下記他のオプションと併用ができます。例えば、<code>valCheck="required text"</code><code>valCheck="required passwd_4-10"</code>など。</p>
+						</dd>
+
+						<dt>テキスト項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="text"</code>を付加してください。</p>
+							<p>名前や住所などテキスト項目に対して、全角英数文字を半角に、カタカナの後のハイフンは「ー(長音文字)」にそれ以外は「-(半角)」に置き換えます。</p>
+<pre><code>// 全角英数文字を半角に置き換える
+// 入力         -->   自動変換後
+ＡＢｃ１２３      -->   ABc123
+あＡいBうエ１尾   -->   あAいBうエ1尾
+
+// カタカナの後のハイフンは「ー(長音文字)」にそれ以外は「-(半角)」に置き換えられる
+// 入力         -->   自動変換後
+カレーラ-－ー―‐－メン   -->   カレーラーメン
+新宿区新宿１－－２－３ラ-ーメンビルＡー３０３号室    -->    新宿区新宿1-2-3ラーメンビルA-303号室
+
+// 文字列の先頭/末尾のスペース(半角/全角両方)は削除、連続したスペース(半角/全角両方)は「スペース(全角)」1つに置き換えられる
+「　ＡＢＣ  123　 あいう」    -->    「ABC　123　あいう」
+</code></pre>
+						</dd>
+
+						<dt>カナ項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="kana"</code>を付加してください。</p>
+							<p>入力文字列がすべてカタカナであるかをチェックし、不正形式の警告メッセージを表示します。全角/半角の「-(ハイフン)」等はすべて「ー(長音文字)」に自動変換された上で、連続した「ー(長音文字)」は1文字にマージされます。</p>
+						</dd>
+
+						<dt>数値項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="number"</code>を付加してください。</p>
+							<p>数量や価格などの数値項目に対して、全角英数文字を半角に、数字以外が含まれていた場合は、入力データを消去します。</p>
+<pre><code>// 全角数文字を半角に置き換える
+１２３    -->  123
+1２3４5６    -->  123456
+
+// 数値以外はデータ消去する
+1-A.3    -->  // データ消去(空欄にする)  // 入力必須項目の場合は、警告メッセージ表示
+</code></pre>
+						</dd>
+
+						<dt>電話番号項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="tel"</code>を付加してください。</p>
+							<p>すべて半角に変換し、携帯電話や固定電話など番号毎に「-(半角)」で区切りを入れます。桁数が合わない場合や数字とハイフン以外の文字が入っている場合に不正形式の警告メッセージを表示します。</p>
+<pre><code>// 全角数文字を半角にに置き換えられる
+// ハイフン類は全て「-(半角)」に置き換えられる
+// 入力         -->   自動変換後
+０１２０－ー１２３-４５６      -->   0120-123-456
+０１２３－ＡＢＣ－ＡＢＣ       -->   0123-ABC-ABC // 全て半角に変換されるが、エラー警告
+03.1234+5６７８       -->   03.1234+5678 // 全て半角に変換されるが、エラー警告
+
+// 050|070|080|090で始まる11桁は「3桁-4桁-4桁」に置き換えられる // IP電話、携帯電話、PHS電話
+05０１ー2３45-6７8    -->  050-1234-5678
+040-1234-5678    -->  // 正しいフォーマットだが、番号が存在しないためエラー警告
+
+// 0120|0800で始まる10桁は「4桁-3桁-3桁」に置き換えられる // フリーダイアル
+01-2034-5678    -->  0120-345-678
+08-00-123456    -->  0800-123-456
+
+// 03|06、0420|0429、04700|04709、0471で始まる10桁は「2桁-4桁-4桁」に置き換えられる // 市外局番2ケタ+市内局番4桁+加入者番号4桁
+031-2-345678    -->  03-1234-5678  // 間違った区切りを正しく変換
+0471234567    -->  04-7123-4567  // 千葉、埼玉の一部で採用されいている「2桁-4桁-4桁」形式
+0472234567    -->  047-123-4567  // 上記に該当しないので「3桁-3桁-4桁」に変換
+
+// 上記以外で入力時に「-(ハイフン)」等で区切られていない10桁の番号、区切りがおかしい番号は「3桁-3桁-4桁」に置き換えられる //「4桁-2桁-4桁」の変換には対応しない
+05-1234-5678    -->  051-234-5678
+0----123456789    -->  012-345-6789
+123ー4567890    -->  123-4567890  // 0から始まらない番号は全てエラー警告
+
+// 緊急番号(110/119)、3桁番号サービス(117/171/177)、その他コレクトコール等には対応しない
+</code></pre>
+						</dd>
+
+						<dt>郵便番号項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="zip"</code>を付加してください。</p>
+							<p>すべて半角に変換し、3桁 + 「-(半角)」 + 4桁 で区切りを入れます。桁数が少ない場合や数字とハイフン以外の文字が入っている場合に不正形式の警告メッセージを表示します。桁数が多い場合は、先頭から7桁を以降を削除します。</p>
+						</dd>
+
+						<dt>メールアドレス項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="email"</code>を付加してください。</p>
+							<p>メールアドレスの規格に基づき、アドレスが正しくない場合に不正形式の警告メッセージを表示します。</p>
+						</dd>
+
+						<dt>URLアドレス項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="url"</code>を付加してください。</p>
+							<p>インターネットアドレスの規格に基づき、アドレスが正しくない場合に不正形式の警告メッセージを表示します。静的なhtmlアドレスだけでなく、「/(スラッシュ)」区切り、ページ内リンクハッシュ、phpやcgiの付加パラメータにも対応しています。</p>
+						</dd>
+
+						<dt>パスワード項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="passwd"</code>を付加してください。</p>
+							<p>パスワードの強度(長さ)を指定したい場合は、<code>passwd</code>の後ろに「_(アンダーバー)」と数値を指定します。<br />例えば、6文字以上(上限なし)の場合<code>valCheck="passwd_6-"</code>、10文字以上20文字以下の場合<code>valCheck="passwd_10-20"</code>となります。</p>
+<pre><code>// 4文字以上10文字までのパスワードを許容、パスワード入力自体は非必須のためパスワード入力時のみ文字数チェック
+&lt;input type="password" name="passwd1" valCheck="passwd_4-10" /&gt;
+
+// 10文字までのパスワードを許容、パスワード入力自体は非必須のためパスワード入力時のみ文字数チェック
+&lt;input type="password" name="passwd2" valCheck="passwd_-10" /&gt;
+
+// 4文字以上10文字までのパスワードを許容、パスワード入力自体必須
+&lt;input type="password" name="passwd3" valCheck="required passwd_4-10" /&gt;
+
+// パスワード入力自体必須のため最低1文字以上の入力が必須 (実質 valCheck="required" と同じ動作)
+&lt;input type="password" name="passwd4" valCheck="required passwd" /&gt;
+</code></pre>
+						</dd>
+
+						<dt>セレクト項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="select"</code>を付加してください。</p>
+							<p>プレースホルダの代わりに記載した<code>&lt;option&gt;選択してください&lt;/option&gt;</code>などが動作に影響しないようにします。</p>
+						</dd>
+
+						<dt>ラジオボタン<br />チェックボックス項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="check"</code>を付加してください。</p>
+							<p>ラジオボタンまたは、チェックボックスがチェックされていない場合に入力必須の警告メッセージを表示します。</p>
+						</dd>
+
+						<dt>選択数指定可能<br />チェックボックス項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="groupcheck"</code>を付加してください。</p>
+							<p>同名のチェックボックスの中で一つもチェックされていない場合に警告メッセージを表示します。チェックの数を指定したい場合は、<code>groupcheck</code>の後ろに「_(アンダーバー)」と数値を指定します。</p>
+							<p>例えば、6つのチェックボックスの内、最低3つチェックが必要な場合<code>valCheck="groupcheck_3-"</code>を6つチェックボックス全てに設定します。</p>
+<pre><code>// 趣味を3つ選んで貰いたい場合 (3 <= x <= 3)
+// 3つ未満を選択した際：選択不足の警告メッセージを表示
+// 4つ以上を選択した際：選択超過の警告メッセージを表示
+&lt;div class="control-group"&gt;
+	&lt;label class="control-label" for="inputPassword"&gt;趣味&lt;/label&gt;
+	&lt;div class="controls"&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="reading" valCheck="required groupcheck_3-3" /&gt; 読書&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="driving" valCheck="required groupcheck_3-3" /&gt; ドライブ&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="movies" valCheck="required groupcheck_3-3" /&gt; 映画鑑賞&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="cycling" valCheck="required groupcheck_3-3" /&gt; サイクリング&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="travelling" valCheck="required groupcheck_3-3" /&gt; 旅行&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="ceramics" valCheck="required groupcheck_3-3" /&gt; 陶芸&lt;/label&gt;
+		&lt;label&gt;&lt;input type="checkbox" name="hobbies" value="yoga" valCheck="required groupcheck_3-3" /&gt; ヨガ&lt;/label&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+// requiredの指定がある場合で選択が0個の場合：入力必須の警告メッセージを表示
+// requiredの指定がない場合で選択が0個の場合：選択不足の警告メッセージを表示
+
+valCheck="required groupcheck_3-"   // 項目を3つ以上選んで貰いたい場合 (3 <= x)
+valCheck="required groupcheck_-5"   // 項目を5つまで選んで貰いたい場合 (x <= 5)
+valCheck="required groupcheck_3-5"  // 項目を3つ以上5つまで選んで貰いたい場合 (3 <= x <= 5)
+</code></pre>
+						</dd>
+
+						<dt>ファイル選択項目</dt>
+						<dd>
+							<p>対象のエレメントに<code>valCheck="file"</code>を付加してください。</p>
+							<p>拡張子による選択可否を設定する場合は、スペース区切りで受け入れ可能な拡張子を記載します。対象外のファイルの場合に不正形式の警告メッセージを表示します。</p>
+							<p class="text-primary">※ ファイルのヘッダー情報や中身は一切確認しておらず、拡張子のみで判定しています。</p>
+<pre><code>// ファイルの選択が必須の場合
+&lt;input type="file" id="rec-resume" name="rec-resume" valCheck="required file"&gt;
+
+// ファイルの選択が必須ではないが、選択した際は拡張子をチェックする場合
+&lt;input type="file" id="rec-resume" name="rec-resume" valCheck="file pdf doc docx rtf"&gt;
+
+// ファイルの選択が必須且つ、選択した拡張子をチェックする場合
+&lt;input type="file" id="rec-resume" name="rec-resume" valCheck="required file pdf doc docx rtf"&gt;
+</code></pre>
+						</dd>
+
+						<dt>サブミットボタン</dt>
+						<dd>
+							対象のエレメントに<code>valCheck="submit"</code>を付加してください。<br />
+							フォームの送信前にフォーム内の各対象エレメントに対し、上記のチェックを行い、エラー警告が一つもない場合のみ、対象オブジェクト(ボタン)の本来の処理を継続します。
+							エラー警告がある場合は警告を表示後、<code>return false;</code>を返し、処理を中断します。
+<pre><code>&lt;a class="btn btn-large" href="#" onClick="alert('test');" valCheck="submit"&gt;&lt;i class="icon-envelope icon-white"&gt;&lt;/i&gt; 送信&lt;/a&gt;
+</code></pre>
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<footer>
+				<p>ENTEREAL &copy; 2014</p>
+				<a class="btn" href="http://www.entereal.co.jp/dev_validationV3.html" style="margin-top:50px;"><i class="icon-chevron-left"></i>　解説ページに戻る</a>
+			</footer>
+		</div> <!-- /container -->
+
+		<!-- javascript -->
+		<script type="text/javascript" charset="UTF-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</body>
+</html>
