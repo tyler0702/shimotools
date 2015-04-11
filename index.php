@@ -53,15 +53,15 @@ header("Cache-Control: Private"); ?>
 </form>
 
 
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">First</a></li>
-		<li><a href="#tabs-2">Second</a></li>
-		<li><a href="#tabs-3">Third</a></li>
-	</ul>
-	<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-	<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-	<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+<!-- Accordion -->
+<h2 class="demoHeaders">Accordion</h2>
+<div id="accordion">
+	<h3>First</h3>
+	<div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+	<h3>Second</h3>
+	<div>Phasellus mattis tincidunt nibh.</div>
+	<h3>Third</h3>
+	<div>Nam dui erat, auctor a, dignissim quis.</div>
 </div>
 
 
@@ -78,11 +78,126 @@ header("Cache-Control: Private"); ?>
   <script type="text/javascript" charset="UTF-8">
   $(document).ready(function() {
     $('#regform').bootstrapFormValidation({
-    'checkRealtime': 'true'
-     'requiredMessage': 'URLを打つのじゃ！',
+    'checkRealtime': 'true',
+     'requiredMessage': 'URLを打つのじゃ！'
     });
   });
   </script>
+<script>
 
+$( "#accordion" ).accordion();
+
+
+
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "#autocomplete" ).autocomplete({
+	source: availableTags
+});
+
+
+
+$( "#button" ).button();
+$( "#radioset" ).buttonset();
+
+
+
+$( "#tabs" ).tabs();
+
+
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 400,
+	buttons: [
+		{
+			text: "Ok",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+// Link to open the dialog
+$( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+});
+
+
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
+});
+
+
+
+$( "#progressbar" ).progressbar({
+	value: 20
+});
+
+
+
+$( "#spinner" ).spinner();
+
+
+
+$( "#menu" ).menu();
+
+
+
+$( "#tooltip" ).tooltip();
+
+
+
+$( "#selectmenu" ).selectmenu();
+
+
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+</script>
   </body>
 </html>
